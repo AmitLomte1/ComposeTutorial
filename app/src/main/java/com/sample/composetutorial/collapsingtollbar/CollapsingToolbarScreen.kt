@@ -14,6 +14,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -59,7 +60,7 @@ fun MainContent(lazyListState: LazyListState) {
     val numbers = remember { List(size = 25) { it } }
     val padding by animateDpAsState(
         targetValue = if (lazyListState.isScrolled) 0.dp else TOP_BAR_HEIGHT,
-        animationSpec = tween(durationMillis = 300)
+        animationSpec = tween(durationMillis = 300), label = ""
     )
     LazyColumn(
         modifier = Modifier.padding(top = padding), state = lazyListState

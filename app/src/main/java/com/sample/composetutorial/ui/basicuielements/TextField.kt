@@ -13,6 +13,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -86,8 +87,8 @@ fun OutlineText() {
         val maxChar = 8
         OutlinedTextField(
             value = text,
-            colors = TextFieldDefaults.textFieldColors(
-                textColor = MaterialTheme.colorScheme.error
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedTextColor = MaterialTheme.colorScheme.error
             ),
             placeholder = { Text(text = "Type here") },
             onValueChange = { enteredValue ->
