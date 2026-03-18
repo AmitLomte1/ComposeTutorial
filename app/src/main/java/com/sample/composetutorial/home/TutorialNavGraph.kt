@@ -32,7 +32,7 @@ import com.sample.composetutorial.scaffold.BasicScaffold
 import com.sample.composetutorial.selectableitem.PreviewSelectableItem
 import com.sample.composetutorial.shimmereffect.AnimatedShimmer
 import com.sample.composetutorial.snackbar.BasicSnackbar
-import com.sample.composetutorial.splashscreen.AnimatedSplashScreen
+import com.sample.composetutorial.splashscreen.navgraph.SetUpNavGraph
 import com.sample.composetutorial.stopwatch.screen.StopWatchScreen
 import com.sample.composetutorial.stopwatch.viewmodel.StopWatchViewModel
 import com.sample.composetutorial.tabrow.BasicTabRow
@@ -546,7 +546,8 @@ fun TutorialNavGraph(navController: NavHostController) {
         composable(TutorialRoute.SplashScreen.route) {
             TutorialScreen(title = TutorialRoute.SplashScreen.title, onBackClick = { navController.popBackStack() }) { modifier ->
                 Box(modifier = modifier.fillMaxSize()) {
-                    AnimatedSplashScreen(navHostController = navController)
+                    val splashNavController = androidx.navigation.compose.rememberNavController()
+                    SetUpNavGraph(navController = splashNavController)
                 }
             }
         }
